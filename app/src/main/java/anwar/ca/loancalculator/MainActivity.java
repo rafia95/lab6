@@ -66,30 +66,31 @@ public class MainActivity extends AppCompatActivity {
 
         tv1 = new TextView(this);
         tv1.setText("Total Amount");
-        params.width = 750;
-        params.height = LayoutParams.WRAP_CONTENT;
+        params.width = LayoutParams.MATCH_PARENT;
+        params.height = 300;
         tv1.setBackgroundColor(Color.CYAN);
         tv1.setTextSize(25);
 
         tv2 = new TextView(this);
         tv2.setText("Term of Loan(years)");
-        params.width = 700;
-        params.height = LayoutParams.WRAP_CONTENT;
+        params.width = LayoutParams.MATCH_PARENT;
+        params.height = 300;
         tv2.setBackgroundColor(Color.CYAN);
         tv2.setTextSize(25);
 
         tv3 = new TextView(this);
         tv3.setText("Total Amount");
-        params.width = 700;
-        params.height = LayoutParams.WRAP_CONTENT;
+        params.width = LayoutParams.MATCH_PARENT;
+        params.height = 300;
         tv3.setBackgroundColor(Color.CYAN);
         tv3.setTextSize(25);
 
-        buttonParams = new LinearLayout.LayoutParams(0,
+        buttonParams = new LinearLayout.LayoutParams(700,
                 LayoutParams.WRAP_CONTENT, (float) 2);
         btn1 = new Button(this);
         btn1.setLayoutParams(buttonParams);
         btn1.setText("Calculate");
+        btn1.setVisibility(View.VISIBLE);
         btn1.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -126,12 +127,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ll.addView(btn1);
 
         // default width wrap, height wrap so no params
         ll.addView(tv1);
         ll.addView(tv2);
         ll.addView(tv3);
+        ll.addView(btn1);
+
         ll.addView(tv4);
         ll.addView(tv5);
         ll.addView(tv6);
@@ -163,6 +165,20 @@ public class MainActivity extends AppCompatActivity {
         params.height = LayoutParams.WRAP_CONTENT;
         editText3.setBackgroundColor(Color.GREEN);
         editText3.setTextSize(25);
+
+        buttonParams = new LinearLayout.LayoutParams(700,
+                LayoutParams.WRAP_CONTENT, (float) 2);
+        btn2 = new Button(this);
+        btn2.setLayoutParams(buttonParams);
+        btn2.setText("Clear");
+        btn2.setVisibility(View.VISIBLE);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClear(view);
+            }
+        });
+
         ll2.addView(editText1);
         ll2.addView(editText2);
         ll2.addView(editText3);
@@ -173,41 +189,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(llMain);
 
     }
-    public void createLayout2(){
-        // set up the Linear Layout container)
-        LinearLayout ll2 = new LinearLayout(this);
-        // specifying vertical orientation
-        ll2.setOrientation(LinearLayout.VERTICAL);
-        // creating LayoutParams
-        // public LinearLayout.LayoutParams (int width, int height, float
-        // weight)
-        params = new LinearLayout.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT,
-                450);
 
-        // set LinearLayout as a root element of the screen
-        ll2.setLayoutParams(params);
-        EditText editText1 = new EditText(this);
-        params.width = 700;
-        params.height = LayoutParams.WRAP_CONTENT;
-        editText1.setBackgroundColor(Color.GREEN);
-        editText1.setTextSize(25);
-        EditText editText2 = new EditText(this);
-        params.width = 750;
-        params.height = LayoutParams.WRAP_CONTENT;
-        editText2.setBackgroundColor(Color.GREEN);
-        editText2.setTextSize(25);
-        EditText editText3 = new EditText(this);
-        params.width = 700;
-        params.height = LayoutParams.WRAP_CONTENT;
-        editText3.setBackgroundColor(Color.GREEN);
-        editText3.setTextSize(25);
-        ll2.addView(editText1);
-        ll2.addView(editText2);
-        ll2.addView(editText3);
-        setContentView(ll2);
-
-
-    }
     void onClickCalc(View view) {
         String str1 = edittext1.getText().toString();
         String str2 = edittext2.getText().toString();
@@ -260,27 +242,21 @@ else {
      //   }
     }
 //}
-/*
+
     void onClear(View view){
-        edittext1 = (EditText) findViewById(R.id.editText);
         edittext1.setText("");
 
-        edittext2 = (EditText) findViewById(R.id.editText2);
         edittext2.setText("");
 
-        edittext3 = (EditText) findViewById(R.id.editText3);
         edittext3.setText("");
 
-        txtview1 = (TextView) findViewById(R.id.textView8);
-        txtview1.setText("0");
+        tv1.setText("0");
 
-        txtview2 = (TextView) findViewById(R.id.textView9);
-        txtview2.setText("0");
+        tv2.setText("0");
 
-        txtview3 = (TextView) findViewById(R.id.textView10);
-        txtview3.setText("0");
+        tv3.setText("0");
 
     }
 
-    */
+
 }
