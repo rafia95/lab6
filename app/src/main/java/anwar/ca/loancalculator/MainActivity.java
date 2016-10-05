@@ -16,9 +16,9 @@ import anwar.ca.loancalculator.LoanCalculator;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText edittext1;
-    private EditText edittext2;
-    private EditText edittext3;
+    private EditText editText1;
+    private EditText editText2;
+    private EditText editText3;
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv5;
     private TextView tv6;
     private TextView tv7;
+    private TextView tv8;
+    private TextView tv9;
+    private TextView tv10;
+    private TextView tv11;
     private Button btn1;
     private Button btn2;
     private LinearLayout.LayoutParams  buttonParams, params;
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         // set LinearLayout as a root element of the screen
         llMain.setLayoutParams(params);
+
         // set up the Linear Layout container)
         LinearLayout ll = new LinearLayout(this);
         // specifying vertical orientation
@@ -58,34 +63,34 @@ public class MainActivity extends AppCompatActivity {
         // creating LayoutParams
         // public LinearLayout.LayoutParams (int width, int height, float
         // weight)
-        params = new LinearLayout.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT,
-                450);
+        params = new LinearLayout.LayoutParams(500,
+                LayoutParams.MATCH_PARENT);
 
         // set LinearLayout as a root element of the screen
         ll.setLayoutParams(params);
 
         tv1 = new TextView(this);
         tv1.setText("Total Amount");
-        params.width = LayoutParams.MATCH_PARENT;
+        params.width = 600;
         params.height = 300;
-        tv1.setBackgroundColor(Color.CYAN);
+        tv1.setHeight(128);
         tv1.setTextSize(25);
 
         tv2 = new TextView(this);
         tv2.setText("Term of Loan(years)");
-        params.width = LayoutParams.MATCH_PARENT;
-        params.height = 300;
-        tv2.setBackgroundColor(Color.CYAN);
+        params.width = 600;
+        params.height =300;
+        tv2.setHeight(128);
+
         tv2.setTextSize(25);
 
         tv3 = new TextView(this);
         tv3.setText("Total Amount");
-        params.width = LayoutParams.MATCH_PARENT;
+        params.width = 600;
         params.height = 300;
-        tv3.setBackgroundColor(Color.CYAN);
         tv3.setTextSize(25);
 
-        buttonParams = new LinearLayout.LayoutParams(700,
+        buttonParams = new LinearLayout.LayoutParams(600,
                 LayoutParams.WRAP_CONTENT, (float) 2);
         btn1 = new Button(this);
         btn1.setLayoutParams(buttonParams);
@@ -99,30 +104,27 @@ public class MainActivity extends AppCompatActivity {
         });
         tv4 = new TextView(this);
         tv4.setText("Results");
-        params.width = 700;
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        tv4.setBackgroundColor(Color.CYAN);
+
         tv4.setTextSize(25);
 
         tv5 = new TextView(this);
         tv5.setText("Monthly Payment");
-        params.width = 700;
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        tv5.setBackgroundColor(Color.CYAN);
         tv5.setTextSize(25);
 
         tv6 = new TextView(this);
         tv6.setText("Total Payment");
-        params.width = 700;
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        tv6.setBackgroundColor(Color.CYAN);
         tv6.setTextSize(25);
 
         tv7 = new TextView(this);
         tv7.setText("Total_Interest");
-        params.width = 700;
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        tv7.setBackgroundColor(Color.CYAN);
         tv7.setTextSize(25);
 
 
@@ -146,42 +148,64 @@ public class MainActivity extends AppCompatActivity {
         // public LinearLayout.LayoutParams (int width, int height, float
         // weight)
         params = new LinearLayout.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT,
-                450);
+                LayoutParams.MATCH_PARENT);
 
         // set LinearLayout as a root element of the screen
         ll2.setLayoutParams(params);
-        EditText editText1 = new EditText(this);
-        params.width = 700;
+        editText1 = new EditText(this);
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        editText1.setBackgroundColor(Color.GREEN);
         editText1.setTextSize(25);
-        EditText editText2 = new EditText(this);
-        params.width = 750;
+       editText2 = new EditText(this);
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        editText2.setBackgroundColor(Color.GREEN);
         editText2.setTextSize(25);
-        EditText editText3 = new EditText(this);
-        params.width = 700;
+         editText3 = new EditText(this);
+        params.width = 600;
         params.height = LayoutParams.WRAP_CONTENT;
-        editText3.setBackgroundColor(Color.GREEN);
         editText3.setTextSize(25);
 
-        buttonParams = new LinearLayout.LayoutParams(700,
+        buttonParams = new LinearLayout.LayoutParams(600,
                 LayoutParams.WRAP_CONTENT, (float) 2);
         btn2 = new Button(this);
         btn2.setLayoutParams(buttonParams);
         btn2.setText("Clear");
         btn2.setVisibility(View.VISIBLE);
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onClear(view);
             }
         });
 
+        tv8 = new TextView(this);
+        params.width = 600;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv8.setTextSize(25);
+
+        tv9 = new TextView(this);
+        params.width = 600;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv9.setTextSize(25);
+
+        tv10 = new TextView(this);
+        params.width = 600;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv10.setTextSize(25);
+
+        tv11 = new TextView(this);
+        params.width = 600;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv11.setTextSize(25);
+
         ll2.addView(editText1);
         ll2.addView(editText2);
         ll2.addView(editText3);
+        ll2.addView(btn2);
+        ll2.addView(tv8);
+        ll2.addView(tv9);
+        ll2.addView(tv10);
+        ll2.addView(tv11);
 
         llMain.addView(ll);
         llMain.addView(ll2);
@@ -191,9 +215,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void onClickCalc(View view) {
-        String str1 = edittext1.getText().toString();
-        String str2 = edittext2.getText().toString();
-        String str3 = edittext3.getText().toString();
+        String str1 = editText1.getText().toString();
+        String str2 = editText2.getText().toString();
+        String str3 = editText3.getText().toString();
        /* if(str1 == null || str2 == null || str3 == null || str1.isEmpty() || str2.isEmpty() || str3.isEmpty()) {
             tv5 = (TextView) findViewById(R.id.textView13);
             tv5.setText("Please fill every field!");
@@ -227,34 +251,30 @@ else {
 
             double payment = Math.round(calc.getMonthlyPayment() * 100.00) / 100.00;
             String strPayment = String.valueOf(payment);
-       //     txtview1 = (TextView) findViewById(R.id.textView8);
-       //     txtview1.setText(strPayment);
+            tv9.setText(strPayment);
 
-            double totalLoan = Math.round(calc.getTotalCostOfLoan());
+            double totalLoan = Math.round(calc.getTotalCostOfLoan()* 100.00) / 100.00;
             String strLoan = String.valueOf(totalLoan);
-       //     txtview2 = (TextView) findViewById(R.id.textView9);
-       //     txtview2.setText(strLoan);
+            tv10.setText(strLoan);
 
-            double totalInterest = Math.round(calc.getTotalInterest());
+            double totalInterest = Math.round(calc.getTotalInterest()* 100.00) / 100.00;
             String strInterest = String.valueOf(totalInterest);
-        //    txtview3 = (TextView) findViewById(R.id.textView10);
-        //    txtview3.setText(strInterest);
-     //   }
+            tv11.setText(strInterest);
     }
-//}
+
 
     void onClear(View view){
-        edittext1.setText("");
+        editText1.setText("");
 
-        edittext2.setText("");
+        editText2.setText("");
 
-        edittext3.setText("");
+        editText3.setText("");
 
-        tv1.setText("0");
+        tv9.setText("0");
 
-        tv2.setText("0");
+        tv10.setText("0");
 
-        tv3.setText("0");
+        tv11.setText("0");
 
     }
 
