@@ -1,10 +1,16 @@
 package anwar.ca.loancalculator;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.app.ActionBar.LayoutParams;
 
 import anwar.ca.loancalculator.LoanCalculator;
 
@@ -13,23 +19,118 @@ public class MainActivity extends AppCompatActivity {
     private EditText edittext1;
     private EditText edittext2;
     private EditText edittext3;
-    private TextView txtview1;
-    private TextView txtview2;
-    private TextView txtview3;
-    private TextView txtview4;
-    private TextView txtview5;
-    private TextView txtview6;
-    private TextView txtview7;
+    private TextView tv1;
+    private TextView tv2;
+    private TextView tv3;
+    private TextView tv4;
+    private TextView tv5;
+    private TextView tv6;
+    private TextView tv7;
+    private LinearLayout.LayoutParams  buttonParams, params;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        createLayout();
+
     }
-    void onClick(View view) {
+    public void createLayout(){
+        // set up the Linear Layout container)
+        LinearLayout ll = new LinearLayout(this);
+        // specifying vertical orientation
+        ll.setOrientation(LinearLayout.VERTICAL);
+        // creating LayoutParams
+        // public LinearLayout.LayoutParams (int width, int height, float
+        // weight)
+        params = new LinearLayout.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT);
+
+        // set LinearLayout as a root element of the screen
+        ll.setLayoutParams(params);
+
+        tv1 = new TextView(this);
+        tv1.setText("Total Amount");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv1.setBackgroundColor(Color.CYAN);
+        tv1.setTextSize(25);
+
+        tv2 = new TextView(this);
+        tv2.setText("Term of Loan(years)");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv2.setBackgroundColor(Color.CYAN);
+        tv2.setTextSize(25);
+
+        tv3 = new TextView(this);
+        tv3.setText("Total Amount");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv3.setBackgroundColor(Color.CYAN);
+        tv3.setTextSize(25);
+
+        buttonParams = new LinearLayout.LayoutParams(0,
+                LayoutParams.WRAP_CONTENT, (float) 2);
+        Button btn1 = new Button(this);
+        btn1.setLayoutParams(buttonParams);
+        btn1.setText("Calculate");
+        btn1.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        onClickCalc(view);
+                                    }
+        });
+        tv4 = new TextView(this);
+        tv4.setText("Results");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv4.setBackgroundColor(Color.CYAN);
+        tv4.setTextSize(25);
+
+        tv5 = new TextView(this);
+        tv5.setText("Monthly Payment");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv5.setBackgroundColor(Color.CYAN);
+        tv5.setTextSize(25);
+
+        tv6 = new TextView(this);
+        tv6.setText("Total Payment");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv6.setBackgroundColor(Color.CYAN);
+        tv6.setTextSize(25);
+
+        tv7 = new TextView(this);
+        tv7.setText("Total_Interest");
+        params.width = 700;
+        params.height = LayoutParams.WRAP_CONTENT;
+        tv7.setBackgroundColor(Color.CYAN);
+        tv7.setTextSize(25);
+
+
+
+        ll.addView(btn1);
+
+        // default width wrap, height wrap so no params
+        ll.addView(tv1);
+        ll.addView(tv2);
+        ll.addView(tv3);
+        ll.addView(tv4);
+        ll.addView(tv5);
+        ll.addView(tv6);
+        ll.addView(tv7);
+
+        setContentView(ll);
+
+    }
+    public void createLayout2(){
+
+    }
+    void onClickCalc(View view) {
         edittext1 = (EditText) findViewById(R.id.editText);
-        String str1 = edittext1.getText().toString();
+        String str1 = tv1.getText().toString();
         edittext2 = (EditText) findViewById(R.id.editText2);
         String str2 = edittext2.getText().toString();
         edittext3 = (EditText) findViewById(R.id.editText3);
@@ -80,7 +181,7 @@ else {
             txtview3.setText(strInterest);
         }
     }}
-
+/*
     void onClear(View view){
         edittext1 = (EditText) findViewById(R.id.editText);
         edittext1.setText("");
@@ -101,4 +202,6 @@ else {
         txtview3.setText("0");
 
     }
+
+    */
 }
